@@ -1,0 +1,33 @@
+@use 'config' as *;
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  @include flex(center);
+  width: 100vw;
+  height: 100vh;
+}
+html {
+  font-size: 62.5%;
+}
+.container {
+  background-color: $main;
+  width: 400px;
+  height: 550px;
+  box-shadow: 14px 14px 20px $darkShadow, -14px -14px 20px $white;
+  border-radius: 20px;
+}
+.mode {
+  width: 100px;
+  height: 40px;
+  margin: auto;
+  border-radius: 10px;
+  @include flex(space-evenly);
+  i {
+    cursor: pointer;
+  }
+}
+//
+.not-active {
+  color: rgb(146, 145, 145);
+}

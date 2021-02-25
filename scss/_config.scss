@@ -1,0 +1,17 @@
+$white: white;
+$dark: black;
+$neon: #26daba;
+$orange: #de6262;
+$darkShadow: #cbced1;
+$main: #ebeff2;
+
+@mixin flex($what) {
+  display: flex;
+  align-items: center;
+  justify-content: $what;
+}
+@mixin flexScreen {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

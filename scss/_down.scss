@@ -1,0 +1,32 @@
+@use 'config' as *;
+.btn {
+  width: 85%;
+  height: 60%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  place-items: center;
+  gap: 1rem;
+  div {
+    border-radius: 7px;
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
+    @include flex(center);
+    box-shadow: 5px 5px 5px $darkShadow, -5px -5px 10px $white;
+    cursor: pointer;
+  }
+}
+
+.o {
+  color: $orange;
+  font-weight: 900;
+}
+.n {
+  color: $neon;
+  font-weight: 900;
+}
+.dot {
+  font-weight: 900;
+}
