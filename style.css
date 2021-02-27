@@ -110,3 +110,9 @@ html {
 .not-active {
   color: #929191;
 }
+
+@media (max-width: 370px) {
+  .container {
+    width: 340px;
+  }
+}
