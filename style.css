@@ -56,19 +56,31 @@
   font-weight: 900;
 }
 
+.light:hover {
+  background-color: #cbced1;
+}
+
+.dark:hover {
+  background-color: #181b20;
+}
+
 .equals {
   color: #de6262;
   font-weight: 900;
 }
 
-.n,
-.yo {
+.n {
   color: #26daba;
   font-weight: 900;
 }
 
 .dot {
   font-weight: 900;
+}
+
+.workings {
+  overflow: hidden;
+  letter-spacing: 0.3rem;
 }
 
 body {

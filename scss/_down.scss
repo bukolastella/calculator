@@ -23,16 +23,32 @@
   color: $orange;
   font-weight: 900;
 }
+// .o:hover,
+// .equals:hover,
+// .n:hover {
+//   background-color: $darkShadow;
+// }
+.light:hover {
+  background-color: $darkShadow;
+}
+.dark:hover {
+  // background-color: rgb(36 40 44);
+  background-color: rgb(24 27 32);
+}
 .equals {
   color: $orange;
   font-weight: 900;
 }
-.n,
-.yo {
+.n {
   color: $neon;
   font-weight: 900;
 }
 
 .dot {
   font-weight: 900;
+}
+
+.workings {
+  overflow: hidden;
+  letter-spacing: 0.3rem;
 }
