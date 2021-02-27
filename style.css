@@ -56,7 +56,13 @@
   font-weight: 900;
 }
 
-.n {
+.equals {
+  color: #de6262;
+  font-weight: 900;
+}
+
+.n,
+.yo {
   color: #26daba;
   font-weight: 900;
 }

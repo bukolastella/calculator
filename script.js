@@ -39,18 +39,18 @@ light.addEventListener("click", function () {
 
 //function for the caculations
 const calculator = function (exp) {
-  if (exp.includes("⁺⁄₋")) {
-    const neww = exp.split("⁺⁄₋");
-    const newData = neww;
-    console.log(exp.slice(0, 1));
-    if (exp.slice(0, 1).includes("−")) {
-      const data = "".concat(newData);
-      console.log(data);
-    } else {
-      const data = "−".concat(newData);
-      console.log(data);
-    }
-  }
+  // if (exp.includes("⁺⁄₋")) {
+  //   const neww = exp.split("⁺⁄₋");
+  //   const newData = neww;
+  //   console.log(exp.slice(0, 1));
+  //   if (exp.slice(0, 1).includes("−")) {
+  //     const data = "".concat(newData);
+  //     console.log(data);
+  //   } else {
+  //     const data = "−".concat(newData);
+  //     console.log(data);
+  //   }
+  // }
   if (exp.includes("+")) {
     const data = exp.split("+");
     if (data[1] === "") return;
@@ -91,34 +91,41 @@ const calculator = function (exp) {
       return total;
     }
   }
-  if (exp.includes(".")) {
-    const data = exp.split(".");
-    if (data[1] === "") return;
-    console.log(data);
-
-    console.log(parseFloat(workBox));
-    const total = String(Number(workBox));
-    console.log(total);
-    return total;
-  }
 };
 
 let workBox = "";
 let showWorkBox = "";
+let box1 = "";
+let box2 = "";
 let operator = [];
 btn.addEventListener("click", function (e) {
+  //guard clause
   if (e.target.classList.contains("btn")) return;
-  if (e.target.classList.contains("n") || e.target.classList.contains("o"))
+  if (e.target.classList.contains("n") || e.target.classList.contains("o")) {
     operator.push(e.target.textContent);
+    if (operator.length > 1) workBox = resultBox.textContent;
+    box1 = box2;
+    box2 = "";
+    console.log(box1, box2);
+  } else {
+    box2 += e.target.textContent;
+    const data = [box1, box2].join(operator);
+    const results = calculator(data);
+    workings.textContent = showWorkBox;
+    if (!results) {
+      console.log("not ggod");
+      return;
+    }
+
+    // workBox = results;
+    resultBox.textContent = results;
+    console.log("djksk");
+    return;
+  }
+
   workBox += e.target.textContent;
   showWorkBox += e.target.textContent;
-  //   console.log(Number(workBox));
-
-  //   if (workings.textContent == "") {
-  //     resultBox.textContent = "";
-  //     resultBox.style.transform = "translateY(0px)";
-  //     resultBox.style.fontSize = "1.5rem";
-  //   }
+  console.log("haa");
   if (resultBox.style.transform == "translateY(-30px)") {
     if (e.target.classList.contains("n") || e.target.classList.contains("o")) {
       workBox = resultBox.textContent + workBox;
@@ -126,7 +133,7 @@ btn.addEventListener("click", function (e) {
       resultBox.style.transform = "translateY(0px)";
       resultBox.style.fontSize = "1.5rem";
       resultBox.style.transition = "transform 0s ease-in-out";
-      //   resultBox.textContent = "";
+      // resultBox.textContent = "";
     } else {
       resultBox.textContent = "";
       resultBox.style.transform = "translateY(0px)";
@@ -143,7 +150,6 @@ btn.addEventListener("click", function (e) {
     showWorkBox = "";
     operator = [];
     workings.textContent = "";
-    //
     return;
   }
   const results = calculator(workBox);
@@ -152,7 +158,8 @@ btn.addEventListener("click", function (e) {
     console.log("not ggod");
     return;
   }
-  workBox = results;
+
+  // workBox = results;
   resultBox.textContent = results;
 });
 //else {
