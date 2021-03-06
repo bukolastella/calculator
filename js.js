@@ -7,6 +7,7 @@ const screen = document.querySelector(".screen");
 const equals = document.querySelector(".equals");
 const resultBox = document.querySelector(".result");
 const workings = document.querySelector(".workings");
+console.log(eval("2 + 2"));
 
 //
 btn.querySelectorAll("div").forEach((ev) => {
@@ -170,6 +171,7 @@ btn.addEventListener("click", function (e) {
       box2 = box2.slice(0, -1);
       workings.textContent = workings.textContent.slice(0, index) + box2;
       const data = box1 + operator + box2;
+      // const result = eval(data);
       const result = calculator(data);
       resultBox.textContent = result;
     }
@@ -188,7 +190,7 @@ btn.addEventListener("click", function (e) {
   }
   //if what you press after the result button is a number
   if (resultBox.style.transform == "translateY(-30px)") {
-    animateDown();
+    animateDown(resultBox);
     //clear all
     //similar to as if you are starting again
     workings.textContent = box1 = box2 = resultBox.textContent = "";
